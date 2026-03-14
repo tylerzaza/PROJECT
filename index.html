@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+<meta charset="UTF-8">
+<title>Tyler's Interactive Portfolio</title>
+
+<style>
+
+body{
+font-family:Arial;
+text-align:center;
+padding:20px;
+background:#f4f4f4;
+transition:0.4s;
+}
+
+section{
+border:2px solid black;
+border-radius:15px;
+padding:20px;
+margin:20px auto;
+max-width:900px;
+background:white;
+}
+
+.flex{
+display:flex;
+justify-content:center;
+gap:20px;
+flex-wrap:wrap;
+}
+
+.box{
+border:1px solid gray;
+padding:15px;
+width:250px;
+background:#eeeeee;
+border-radius:10px;
+}
+
+button{
+padding:10px 20px;
+margin:10px;
+border:none;
+border-radius:20px;
+background:black;
+color:white;
+cursor:pointer;
+font-size:14px;
+transition:0.2s;
+}
+
+button:hover{
+background:#444;
+transform:scale(1.05);
+}
+
+img{
+margin:15px;
+border-radius:15px;
+transition:transform 0.4s;
+}
+
+.spin{
+animation:spin 2s linear infinite;
+}
+
+@keyframes spin{
+from{transform:rotate(0deg);}
+to{transform:rotate(360deg);}
+}
+
+.dark{
+background:black;
+color:white;
+}
+
+.dark section{
+background:#222;
+border-color:white;
+}
+
+@media(max-width:600px){
+
+.flex{
+flex-direction:column;
+align-items:center;
+}
+
+.box{
+width:90%;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h1>Tyler's Interactive Portfolio 🪽</h1>
+
+<img src="92690-joobi-mewing-pink.png" width="200">
+
+<section>
+
+<h2>About Me</h2>
+
+<p>
+Hello! My name is Tyler. I live in Yangon and I am 12 years old.
+I enjoy playing games and coding. My favorite coding languages are HTML and Python.
+</p>
+
+</section>
+
+<section>
+
+<h2>Skills</h2>
+
+<div class="flex">
+
+<div class="box">HTML</div>
+<div class="box">Python</div>
+<div class="box">Scratch</div>
+<div class="box">Camera Skills</div>
+
+</div>
+
+</section>
+
+<section class="flex">
+
+<div class="box">
+
+<h3>👍 I Like</h3>
+
+<ul id="likeList">
+<li>food</li>
+<li>friends</li>
+<li>being alone</li>
+</ul>
+
+<button onclick="addLike()">Add Like</button>
+
+</div>
+
+<div class="box">
+
+<h3>👎 I Don't Like</h3>
+
+<ul id="dislikeList">
+<li>rude people</li>
+<li>problematic people</li>
+</ul>
+
+<button onclick="addDislike()">Add Dislike</button>
+
+</div>
+
+</section>
+
+<section>
+
+<h2>My Favorite Symbol ⭐</h2>
+
+<img id="star" src="b944a103f07c5fd66e0874815893e868.jpg" width="250">
+
+<br>
+
+<button onclick="spinStar()">Spin Star</button>
+
+</section>
+
+<section>
+
+<h2>Interactive Buttons</h2>
+
+<button onclick="showMessage()">Click Me</button>
+
+<p id="message"></p>
+
+<button onclick="toggleMode()">Toggle Dark Mode</button>
+
+<button onclick="changeColor()">Random Background</button>
+
+</section>
+
+<script>
+
+function showMessage(){
+document.getElementById("message").innerText =
+"Hello! Thanks for visiting my portfolio!";
+}
+
+function toggleMode(){
+document.body.classList.toggle("dark");
+}
+
+function changeColor(){
+document.body.style.backgroundColor =
+"#" + Math.floor(Math.random()*16777215).toString(16);
+}
+
+function spinStar(){
+document.getElementById("star").classList.toggle("spin");
+}
+
+function addLike(){
+
+let item = prompt("What do you like?");
+if(item){
+
+let li = document.createElement("li");
+li.textContent = item;
+
+document.getElementById("likeList").appendChild(li);
+
+}
+
+}
+
+function addDislike(){
+
+let item = prompt("What do you dislike?");
+if(item){
+
+let li = document.createElement("li");
+li.textContent = item;
+
+document.getElementById("dislikeList").appendChild(li);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
